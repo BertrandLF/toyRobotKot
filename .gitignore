@@ -15,5 +15,6 @@
 .idea
 build
 .gradle
+out
 *.iml
 !gradle-wrapper.jar
