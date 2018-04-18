@@ -1,4 +1,4 @@
-    package demo
+package com.octo.toyrobot
 
 fun getGreeting(): String {
     val words = mutableListOf<String>()
