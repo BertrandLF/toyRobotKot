@@ -8,11 +8,11 @@ import org.junit.Assert.assertEquals
 object WorldSpec : Spek({
 
     given("a world with a robot") {
-        val robot = Robot(0,0,Direction.NORTH)
+        val robot = Robot(Direction.NORTH, 0, 0)
         val world = World(robot)
 
         it("should report the robot's position") {
-             assertEquals("Robot(x=0, y=0, facing=NORTH)", world.report())
+             assertEquals("Robot(facing=NORTH, x=0, y=0)", world.report())
         }
     }
 })

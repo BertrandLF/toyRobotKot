@@ -9,14 +9,17 @@ import org.junit.Assert.assertEquals
 
 object RobotSpec : Spek({
 
-    given("a robot") {
-        val robot = Robot(0, 0, Direction.NORTH)
+    given("robots facing all possible directions") {
+        val robots: List<Robot> = Direction.values().map { Robot(it) }
 
         on("move") {
-            val newRobot = robot.move()
-
-            it("should return a robot at the new position") {
-                assertEquals(Robot(0, 1, Direction.NORTH), newRobot)
+            robots.map { robot ->
+                println("robot / $robot")
+                val newRobot = robot.move()
+                it("should return a robot at the new position") {
+                    println("after move / $newRobot")
+                    assertEquals(Robot(Direction.NORTH, 0, 1), newRobot)
+                }
             }
         }
     }
