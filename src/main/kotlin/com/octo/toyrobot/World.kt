@@ -6,15 +6,12 @@ class World constructor(private val table: Table = Table()){
 
     fun getRobot(): Robot? { return this.robot }
 
-    fun place(facing: Direction, x: Int, y: Int) {
-        this.robot = Robot(facing, x, y)
+    fun place(facing: Direction, position: Position) {
+        this.robot = Robot(facing, position)
     }
 
     fun moveRobot() {
-        this.robot = this.robot?.move(table)
+        this.robot = this.robot?.move(table.height, table.width)
     }
 
-    fun report(): String {
-        return robot.toString()
-    }
 }
