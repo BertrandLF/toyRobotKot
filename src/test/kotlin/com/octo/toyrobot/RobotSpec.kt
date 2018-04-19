@@ -9,10 +9,11 @@ import org.junit.Assert.assertEquals
 
 object RobotSpec : Spek({
 
-    given("a robot facing a particular direction") {
+    given("a robot facing any possible direction") {
         val robots: List<Robot> = Direction.values().map { Robot(it) }
 
         on("move") {
+            val table = Table()
             val expectedRobots: List<Robot> = listOf(
                     Robot(Direction.NORTH, 0, 1),
                     Robot(Direction.EAST, 1, 0),
@@ -20,7 +21,7 @@ object RobotSpec : Spek({
                     Robot(Direction.WEST, -1, 0))
 
             robots.mapIndexed { index, robot ->
-                val newRobot = robot.move()
+                val newRobot = robot.move(table)
 
                 it("should return ${expectedRobots[index]}") {
                     assertEquals(expectedRobots[index], newRobot)
@@ -59,4 +60,11 @@ object RobotSpec : Spek({
         }
     }
 
+    given("a robot facing the chasm") {
+        val robot = Robot(Direction.SOUTH)
+
+        it("should not fall") {
+            assertEquals(robot, robot.move(Table()))
+        }
+    }
 })

@@ -11,7 +11,7 @@ class World constructor(private val table: Table = Table()){
     }
 
     fun moveRobot() {
-        this.robot = this.robot?.move()
+        this.robot = this.robot?.move(table)
     }
 
     fun report(): String {
