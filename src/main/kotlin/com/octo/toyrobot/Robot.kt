@@ -11,5 +11,19 @@ data class Robot(private val facing: Direction,
         Direction.SOUTH -> Robot(facing, x, y - 1)
     }
 
+    fun right(): Robot = when (facing) {
+        Direction.NORTH -> Robot(Direction.EAST, x, y)
+        Direction.EAST -> Robot(Direction.SOUTH, x, y)
+        Direction.SOUTH -> Robot(Direction.WEST, x, y)
+        Direction.WEST -> Robot(Direction.NORTH, x, y)
+    }
+
+    fun left(): Robot = when (facing) {
+        Direction.NORTH -> Robot(Direction.WEST, x, y)
+        Direction.EAST -> Robot(Direction.NORTH, x, y)
+        Direction.SOUTH -> Robot(Direction.EAST, x, y)
+        Direction.WEST -> Robot(Direction.SOUTH, x, y)
+    }
+
 }
 
