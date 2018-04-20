@@ -1,7 +1,11 @@
 package com.octo.toyrobot
 
+import java.util.logging.Logger
+
 data class Robot(private val facing: Direction,
                  private val position: Position = Position()) {
+
+    private val logger = Logger.getLogger(Robot::class.java.name)
 
     fun move(xMax: Int, yMax: Int): Robot? {
         val next = when (facing) {
@@ -10,6 +14,8 @@ data class Robot(private val facing: Direction,
             Direction.WEST -> Robot(facing, position.west())
             Direction.SOUTH -> Robot(facing, position.south())
         }
+
+        logger.info("next move: $next")
         return if (next.position.withinBoundaries(xMax, yMax)) next else this
     }
 
