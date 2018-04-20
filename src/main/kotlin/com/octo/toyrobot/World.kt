@@ -15,3 +15,7 @@ class World constructor(private val table: Table = Table()){
     }
 
 }
+
+fun main(args: Array<String>) {
+    print("Main is ready!!!!!!!!!!!")
+}
