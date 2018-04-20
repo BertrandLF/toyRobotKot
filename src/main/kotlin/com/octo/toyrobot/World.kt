@@ -4,7 +4,7 @@ class World constructor(private val table: Table = Table()){
 
     private var robot: Robot? = null
 
-    fun getRobot(): Robot? { return this.robot }
+    fun report(): String? { return this.robot?.report() }
 
     fun place(facing: Direction, position: Position) {
         this.robot = Robot(facing, position)

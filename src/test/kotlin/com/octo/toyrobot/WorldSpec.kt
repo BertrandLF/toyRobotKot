@@ -7,20 +7,17 @@ import org.junit.Assert.assertEquals
 
 object WorldSpec : Spek({
 
-    val robot = Robot(Direction.NORTH)
-    val table = Table()
-
     given("a world with a table") {
-        val world = World(table)
+        val world = World(Table())
 
         it("should place a robot on the table") {
             world.place(Direction.NORTH, Position())
-            assertEquals(robot, world.getRobot())
+            assertEquals("0,0,NORTH", world.report())
         }
 
         it("should move the robot") {
             world.moveRobot()
-            assertEquals(Robot(Direction.NORTH, Position(0, 1)), world.getRobot())
+            assertEquals("0,1,NORTH", world.report())
         }
 
     }
