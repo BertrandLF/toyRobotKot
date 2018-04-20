@@ -10,8 +10,7 @@ data class Robot(private val facing: Direction,
             Direction.WEST -> Robot(facing, position.west())
             Direction.SOUTH -> Robot(facing, position.south())
         }
-        return if (next.position.withinBoundaries(xMax, yMax))
-            next else this
+        return if (next.position.withinBoundaries(xMax, yMax)) next else this
     }
 
     fun right(): Robot = when (facing) {
