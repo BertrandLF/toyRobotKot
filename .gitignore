@@ -18,3 +18,4 @@ build
 out
 *.iml
 !gradle-wrapper.jar
+.DS_Store

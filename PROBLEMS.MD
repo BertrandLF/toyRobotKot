@@ -18,3 +18,6 @@ https://github.com/JetBrains/kotlin-examples/tree/master/gradle
     -> use application plugin with mainClassName arg
        main function should be at package level
        note that the generated class is appended with Kt
+
+5. gradle cannot pass args to application
+    -> https://github.com/gradle/gradle/issues/1743

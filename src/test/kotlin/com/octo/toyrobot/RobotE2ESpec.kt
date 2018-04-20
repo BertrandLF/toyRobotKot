@@ -17,6 +17,15 @@ object RobotE2ESpec : Spek({
         System.setOut(stream)
     }
 
+    given("no input file") {
+
+        it("should report the expected position") {
+            main(arrayOf())
+            assertEquals("Wrong number of arguments, expected 1 (fileName) got 0", record.toString())
+        }
+
+    }
+
     given("an input file") {
         val fileLocation = "./src/test/resources/testRobot.txt"
         val args = arrayOf(fileLocation)
