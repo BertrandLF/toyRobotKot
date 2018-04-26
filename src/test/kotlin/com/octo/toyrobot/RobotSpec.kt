@@ -21,7 +21,7 @@ object RobotSpec : Spek({
                     Robot(Direction.WEST, Position(0, 1)))
 
             Direction.values().mapIndexed { index, facing ->
-                val newRobot = Robot(facing, initialPosition).move(table.width, table.height)
+                val newRobot = Robot(facing, initialPosition).move(table)
 
                 it("should return ${expectedRobots[index]}") {
                     assertEquals(expectedRobots[index], newRobot)
@@ -65,7 +65,7 @@ object RobotSpec : Spek({
         val robot = Robot(Direction.SOUTH)
 
         it("should not fall") {
-            assertEquals(robot, robot.move(5, 5))
+            assertEquals(robot, robot.move(Table()))
         }
         it("should report the robot's position") {
             assertEquals("0,0,SOUTH", robot.report())

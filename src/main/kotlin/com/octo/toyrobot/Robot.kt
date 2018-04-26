@@ -7,7 +7,7 @@ data class Robot(private val facing: Direction,
 
     private val logger = Logger.getLogger(Robot::class.java.name)
 
-    fun move(xMax: Int, yMax: Int): Robot? {
+    fun move(table: Table): Robot? {
         val next = when (facing) {
             Direction.NORTH -> Robot(facing, position.north())
             Direction.EAST -> Robot(facing, position.east())
@@ -16,7 +16,7 @@ data class Robot(private val facing: Direction,
         }
 
         logger.info("next move: $next")
-        return if (next.position.withinBoundaries(xMax, yMax)) next else this
+        return if (table.withinBoundaries(next.position)) next else this
     }
 
     fun right(): Robot = when (facing) {

@@ -26,7 +26,7 @@ class World constructor(private val table: Table = Table()){
     }
 
     fun moveRobot() {
-        this.robot = this.robot?.move(table.height, table.width)
+        this.robot = this.robot?.move(table)
     }
 
 }
