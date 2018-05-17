@@ -3,7 +3,7 @@ https://github.com/JetBrains/kotlin-examples/tree/master/gradle
 1. cannot access cache (Build: Sync)
     Kotlin DSL?
     -> use kotlin base project HelloWorld
-    
+
 2. weird dependency warning and errors with incompatible jars
 
     -> use   compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
