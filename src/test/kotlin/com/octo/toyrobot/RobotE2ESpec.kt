@@ -19,7 +19,7 @@ object RobotE2ESpec : Spek({
 
     given("no input file") {
 
-        it("should report the expected position") {
+        it("should complain about missing argument") {
             main(arrayOf())
             assertEquals("Wrong number of arguments, expected 1 (fileName) got 0", record.toString())
         }
@@ -43,7 +43,18 @@ object RobotE2ESpec : Spek({
 
         it("should report the expected position") {
             main(args)
-            assertEquals("5,5,NORTH", record.toString())
+            assertEquals("4,4,NORTH", record.toString())
+        }
+
+    }
+
+    given("an input file placing the robot at risk") {
+        val fileLocation = "./src/test/resources/testRobotNoWeirdPlace.txt"
+        val args = arrayOf(fileLocation)
+
+        it("should report the expected position") {
+            main(args)
+            assertEquals("nullnullnull", record.toString())
         }
 
     }
